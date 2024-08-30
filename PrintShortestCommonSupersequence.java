@@ -1,8 +1,8 @@
 public class PrintShortestCommonSupersequence {
     public static void main(String args[]){
-        String s1= "acbcf";
-        String s2= "abcdaf";
-        //SCS=acbcdaf
+        String s1= "abac";
+        String s2= "cab";
+        //SCS=cabac
         int n=s1.length();
         int m=s2.length();
         int dp[][]=new int[n+1][m+1];
@@ -44,6 +44,14 @@ public class PrintShortestCommonSupersequence {
                     j--;
                 }
             }
+        }
+        while(i>0){
+            s=s1.charAt(i-1)+s;
+            i--;
+        }
+        while(j>0){
+            s=s2.charAt(j-1)+s;
+            j--;
         }
         System.out.println("printing shortest common supersequence: "+s);
     }
